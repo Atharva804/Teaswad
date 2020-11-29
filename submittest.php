@@ -1,23 +1,14 @@
 <?php
-if (isset($_POST['submit'])) {
-	$name = $_POST['name'];
+// if(isset($_REQUEST['HTTP_METHOD'] == "POST"))
+if ($_SERVER['REQUEST_METHOD']=='POST') {
+    print_r($_POST);
 	$email = $_POST['email'];
-	$phone = $_POST['phone'];
-
-    $errorEmpty = false;
-    $errorEmail = false;
-
-    if(empty($name) || empty($email) || empty($phone)) {
-        echo "<span class='error'>Fill in all fields!</span>";
-        $errorEmpty = true;
-    } 
-    elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) { 
-        echo "<span class='error'>Write a valid e-mail address!</span>";    
-        $errorEmail = true;        
-    }
-    else {
-        echo "<span class='success'>Thank You for Subscribing!</span>";            
-    }
+    $phone = $_POST['phone'];
+    $name = $_POST['name'];
+    
+    echo $name." ".$email." ".$phone;
+    echo "Values";
+   
 }
 else {
     echo "There was an error!";
@@ -25,11 +16,11 @@ else {
 
 ?>
 
-<script>
+<!-- <script>
     $("#name, #email, #phone").removeClass("input-error");    
 
-    var errorEmpty = "<?php echo $errorEmpty; ?>";
-    var errorEmail = "<?php echo $errorEmail; ?>";
+    var errorEmpty = "<?php //echo $errorEmpty; ?>";
+    var errorEmail = "<?php //echo $errorEmail; ?>";
 
     if (errorEmpty == true) {
         $("#name, #email, #phone").addClass("input-error");
@@ -41,7 +32,7 @@ else {
         $("#name, #email, #phone").val("");        
     }
 
-</script>
+</script> -->
     
     <!-- Second PHP
 

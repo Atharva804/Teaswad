@@ -150,7 +150,7 @@
     <section class="drink section-padding" id="drink">
       <div class="grid-container">
         <!-- First Item -->
-        <form method="post" name="form" action="submittest.php" class="drink-form" id = "drinkform">
+        <form class="drink-form" id = "drinkform">
           <p class="drink-form__feedback" id = "form-message"></p>
           <h3 class="drink-form__title bell-fonts">Join Us!</h3>
           <div class="drink-form__input">
@@ -163,13 +163,56 @@
           <div class="drink-form__input">
             <input type="email" name="email" id="email" maxlength="50" class="input-email" placeholder="Email*" style="height:50px;" >
           </div>
-		  <div class="drink-form__input">
+		      <div class="drink-form__input">
             <input type="tel" name="phone" id="phone" maxlength="10" class="input-phone" placeholder="Contact Number*" style="height:50px;" >
           </div>
-          <input type="submit" id="submit" name="submit" value="Subscribe" class="input-submit" style="height:50px;">
+          
+
         </form>
+        <input type="button" value="Subscribe" class="input-submit" style="height:50px;width:90%" onclick="submit()">
 		</div>
-		</section>
+    </section>
+    
+    <script>
+      function submit() {
+
+        var message = document.getElementById('form-message')
+        console.log('AAya');
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const phone = document.getElementById('phone').value;
+        if(name=="" && email=="" && phone==""){
+          message.innerHTML = "<span class='error'>Fill in all fields!</span>";
+        }
+        else if(phone.length!=10){
+          message.innerHTML = "<span class='error'>Please enter correct mobile number.</span>";
+        }
+        else{
+          console.log("gooo");  
+        
+          var formData = new FormData();
+          formData.append('name',name);
+          formData.append('email',email);
+          formData.append('phone',phone);
+
+          const xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function(){
+            if(this.readyState==4 && this.status==200){
+              alert(this.responseText);
+              console.log("gajab");
+              if(this.responseText=="Success")
+              {
+                message.innerHTML ="<span class='success'>Thank You for Subscribing!</span>";
+              }
+            }
+          };
+
+          xhttp.open('POST','submittest.php',true);
+          xhttp.send(formData);
+        }
+      }
+    </script>
+
         <!-- Second Item -->
         <!-- <article class="drink-card"> -->
           <!-- <h3 class="drink-card__title bell-fonts">Lucky People:</h3> -->

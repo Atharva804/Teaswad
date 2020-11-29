@@ -23,55 +23,46 @@ function eventListeners(){
 
   // Submit By Ajax
 
-    $(document).ready(function() {
-      $("form").submit(function(event) {
-        event.preventDefault();
-        var name = $("#name").val();
-        var email = $("#email").val();
-        var phone = $("#phone").val();
-        var submit = $("#submit").val();
-        $(".drink-form__feedback").load("submittest.php", {
-            name: name,
-            email: email,
-            phone: phone,
-            submit: submit
-        });            
-      });
-    });
+    // $(document).ready(function() {
+    //   $("form").submit(function(event) {
+    //     event.preventDefault();
+    //     var name = $("#name").val();
+    //     var email = $("#email").val();
+    //     var phone = $("#phone").val();
+    //     var submit = $("#submit").val();
+    //     $(".drink-form__feedback").load("submittest.php", {
+    //         name: name,
+    //         email: email,
+    //         phone: phone,
+    //         submit: submit
+    //     });            
+    //   });
+    // });
 
-  // const form = {
-  //   name: document.getElementById('name'),
-  //   email: document.getElementById('email'),
-  //   phone: document.getElementById('phone'),
-  //   submit: document.getElementById('submit'),
-  //   message: document.getElementById('form-message')
+  
 
-  // };
+        
 
-  //   form.submit.addEventListener('click', () => { 
-
-  //       const request = new XMLHttpRequest();
-
-  //       request.onload = () => {
+    //     request.onload = () => {
             
-  //           let respondObject = null;              
-  //           try {
-  //             respondObject = JSON.parse(request.responseText);
-  //           } catch (e) {
-  //             console.error ("Could not parse JSON!");
-  //           }
-  //             if (respondObject) {
-  //               handelResponse(respondObject);
-  //             }          
-  //       };
+    //         let respondObject = null;              
+    //         try {
+    //           respondObject = JSON.parse(request.responseText);
+    //         } catch (e) {
+    //           console.error ("Could not parse JSON!");
+    //         }
+    //           if (respondObject) {
+    //             handelResponse(respondObject);
+    //           }          
+    //     };
 
-  //       const requestData = `name=${form.name.value}&email=${form.email.value}&phone=${form.phone.value}`;
-  //       console.log(requestData);
+    //     const requestData = `name=${form.name.value}&email=${form.email.value}&phone=${form.phone.value}`;
+    //     console.log(requestData);
 
-  //       request.open('post' , 'submittest.php' , true);
-  //       request.setRequestHeader('Content-type' , 'application/x-www-form-urlencoded');
-  //       request.send(requestData);
-  //   });
+    //     request.open('post' , 'submittest.php' , true);
+    //     request.setRequestHeader('Content-type' , 'application/x-www-form-urlencoded');
+    //     request.send(requestData);
+    // });
 
   //      function handelResponse (respondObject) { 
   //       console.log(respondObject);        
